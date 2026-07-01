@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>🌸 イベント受付 🌸</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -16,10 +16,8 @@
       --blue:   #60A5FA;
       --dark:   #3D2C8D;
       --mid:    #7C3AED;
-      --light:  #EDE9FF;
     }
 
-    /* ─── Background ─────────────────────────────── */
     body {
       font-family: 'Noto Sans JP', sans-serif;
       min-height: 100vh;
@@ -53,22 +51,21 @@
     @keyframes blob1 { to { transform: translate(80px, 60px); } }
     @keyframes blob2 { to { transform: translate(-80px, -60px); } }
 
-    /* ─── Layout ──────────────────────────────────── */
     .wrap {
       position: relative; z-index: 1;
-      max-width: 760px;
+      max-width: 520px;
       margin: 0 auto;
       padding: 0 16px 60px;
     }
 
-    /* ─── Header ──────────────────────────────────── */
+    /* ─── Header ─── */
     header {
       text-align: center;
-      padding: 44px 20px 28px;
+      padding: 40px 20px 24px;
       position: relative;
     }
     .header-icon {
-      font-size: 3.2rem;
+      font-size: 3rem;
       display: inline-block;
       animation: bounce 2.4s ease-in-out infinite;
     }
@@ -77,7 +74,7 @@
       50%      { transform: translateY(-12px); }
     }
     h1 {
-      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
       font-weight: 900;
       letter-spacing: .04em;
       background: linear-gradient(135deg, #FF6B9D 0%, #C084FC 50%, #60A5FA 100%);
@@ -87,128 +84,150 @@
       margin: 8px 0 6px;
     }
     .subtitle {
-      font-size: .95rem;
+      font-size: .92rem;
       color: var(--mid);
       font-weight: 500;
     }
-
-    /* deco stars */
-    .deco {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; overflow: hidden;
-    }
-    .deco span {
-      position: absolute;
-      font-size: 1.4rem;
-      animation: twinkle 2.5s ease-in-out infinite;
-    }
-    .deco span:nth-child(1)  { top:14%; left:4%;  animation-delay:0s;   font-size:1.6rem; }
-    .deco span:nth-child(2)  { top:8%;  right:6%; animation-delay:.6s;  font-size:1.2rem; }
-    .deco span:nth-child(3)  { top:50%; left:2%;  animation-delay:1.2s; font-size:1rem;   }
-    .deco span:nth-child(4)  { top:35%; right:3%; animation-delay:1.8s; font-size:1.8rem; }
-    .deco span:nth-child(5)  { top:70%; left:5%;  animation-delay:.9s;  font-size:1.1rem; }
-    .deco span:nth-child(6)  { top:65%; right:4%; animation-delay:2.1s; font-size:1.3rem; }
+    .deco { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+    .deco span { position: absolute; font-size: 1.4rem; animation: twinkle 2.5s ease-in-out infinite; }
+    .deco span:nth-child(1) { top:12%; left:4%;  animation-delay:0s;   font-size:1.6rem; }
+    .deco span:nth-child(2) { top:8%;  right:5%; animation-delay:.6s;  font-size:1.2rem; }
+    .deco span:nth-child(3) { top:55%; left:2%;  animation-delay:1.2s; font-size:1rem;   }
+    .deco span:nth-child(4) { top:40%; right:3%; animation-delay:1.8s; font-size:1.8rem; }
+    .deco span:nth-child(5) { top:75%; left:5%;  animation-delay:.9s;  font-size:1.1rem; }
+    .deco span:nth-child(6) { top:68%; right:4%; animation-delay:2.1s; font-size:1.3rem; }
     @keyframes twinkle {
       0%,100% { opacity:1; transform:scale(1); }
       50%      { opacity:.4; transform:scale(.7); }
     }
 
-    /* ─── Setup notice ────────────────────────────── */
-    .notice {
-      background: rgba(251,217,124,.22);
-      border: 2px solid rgba(251,217,124,.7);
-      border-radius: 16px;
-      padding: 18px 20px;
-      margin-bottom: 20px;
-      font-size: .88rem;
-      color: #92400E;
-      line-height: 1.6;
-    }
-    .notice strong { display: block; margin-bottom: 4px; font-size: .95rem; }
-    code {
-      background: rgba(0,0,0,.07);
-      border-radius: 5px;
-      padding: 1px 6px;
-      font-family: monospace;
-      font-size: .9em;
-    }
-
-    /* ─── Glass card ──────────────────────────────── */
+    /* ─── Glass card ─── */
     .card {
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 24px;
+      border-radius: 28px;
       border: 2px solid rgba(255,255,255,.9);
       box-shadow: 0 8px 40px rgba(192,132,252,.18);
       padding: 28px 24px;
       margin-bottom: 20px;
     }
 
-    /* ─── Search ──────────────────────────────────── */
-    .search-label {
-      font-size: .95rem;
+    /* ─── PIN エントリー ─── */
+    .pin-label {
+      text-align: center;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--mid);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 7px;
+      justify-content: center;
+      gap: 8px;
     }
-    .search-row {
+
+    /* PIN ディスプレイ（入力された桁を表示） */
+    .pin-display {
       display: flex;
+      justify-content: center;
       gap: 10px;
+      margin-bottom: 24px;
     }
-    .search-input {
-      flex: 1;
-      padding: 15px 18px;
-      font-size: 1.25rem;
-      font-family: 'Noto Sans JP', sans-serif;
+    .pin-dot {
+      width: 52px; height: 60px;
+      border-radius: 14px;
       border: 2.5px solid rgba(192,132,252,.35);
-      border-radius: 16px;
-      background: rgba(255,255,255,.95);
+      background: rgba(255,255,255,.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 900;
       color: var(--dark);
-      outline: none;
-      transition: border-color .25s, box-shadow .25s, transform .2s;
-      letter-spacing: .08em;
-      min-width: 0;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
     }
-    .search-input::placeholder { color: #C4B5E8; font-size: .95rem; }
-    .search-input:focus {
+    .pin-dot.active {
       border-color: var(--purple);
-      box-shadow: 0 0 0 4px rgba(192,132,252,.2);
-      transform: translateY(-2px);
+      box-shadow: 0 0 0 3px rgba(192,132,252,.25);
+      transform: scale(1.06);
     }
-    .search-btn {
-      padding: 0 24px;
-      background: linear-gradient(135deg, #FF6B9D, #C084FC);
-      color: #fff;
+    .pin-dot.filled {
+      background: linear-gradient(135deg, rgba(192,132,252,.12), rgba(255,107,157,.12));
+      border-color: var(--purple);
+    }
+
+    /* テンキー */
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .key {
+      aspect-ratio: 1;
+      border-radius: 18px;
       border: none;
-      border-radius: 16px;
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 700;
       cursor: pointer;
-      transition: transform .25s, box-shadow .25s;
-      box-shadow: 0 4px 16px rgba(255,107,157,.4);
-      white-space: nowrap;
-      flex-shrink: 0;
+      transition: transform .12s, box-shadow .12s, opacity .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
     }
-    .search-btn:hover  { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(255,107,157,.5); }
-    .search-btn:active { transform: translateY(-1px); }
+    .key:active { transform: scale(.88); }
+
+    .key-num {
+      background: rgba(255,255,255,.95);
+      color: var(--dark);
+      box-shadow: 0 4px 14px rgba(192,132,252,.15);
+    }
+    .key-num:hover { box-shadow: 0 6px 20px rgba(192,132,252,.28); transform: translateY(-2px); }
+
+    .key-clear {
+      background: linear-gradient(135deg, #FCE4EC, #F8BBD9);
+      color: #C2185B;
+      box-shadow: 0 4px 14px rgba(194,24,91,.12);
+      font-size: 1.8rem;
+    }
+    .key-enter {
+      background: linear-gradient(135deg, #FF6B9D, #C084FC);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,107,157,.4);
+      font-size: 1.5rem;
+    }
+    .key-enter:hover { box-shadow: 0 8px 28px rgba(255,107,157,.5); transform: translateY(-2px); }
+    .key-enter:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+    .key-empty { background: transparent; cursor: default; box-shadow: none; }
+    .key-empty:active { transform: none; }
+
     .hint {
+      text-align: center;
       font-size: .78rem;
       color: #B89FE8;
-      margin-top: 10px;
-      text-align: center;
+      margin-top: 16px;
     }
 
-    /* ─── Result states ───────────────────────────── */
-    .loading {
-      display: flex;
-      justify-content: center;
-      padding: 50px 0;
+    /* ─── Setup notice ─── */
+    .notice {
+      background: rgba(251,217,124,.22);
+      border: 2px solid rgba(251,217,124,.7);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      font-size: .85rem;
+      color: #92400E;
+      line-height: 1.6;
     }
+    .notice strong { display: block; margin-bottom: 4px; }
+    code { background: rgba(0,0,0,.07); border-radius: 4px; padding: 1px 5px; font-family: monospace; font-size: .88em; }
+
+    /* ─── Loading ─── */
+    .loading { display: flex; justify-content: center; padding: 40px 0; }
     .spinner {
       width: 44px; height: 44px;
       border: 4px solid rgba(192,132,252,.3);
@@ -218,54 +237,44 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .empty {
-      text-align: center;
-      padding: 44px 20px;
-    }
-    .empty-icon { font-size: 3rem; display: block; margin-bottom: 14px; }
-    .empty-text { font-size: 1.05rem; color: var(--mid); font-weight: 500; line-height: 1.7; }
-
-    /* ─── Results header ──────────────────────────── */
-    .results-hd {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--mid);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .badge {
-      background: linear-gradient(135deg, #FF6B9D, #C084FC);
-      color: #fff;
-      border-radius: 20px;
-      padding: 2px 12px;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    /* ─── Attendee card ───────────────────────────── */
-    .a-card {
+    /* ─── Result card ─── */
+    .result-card {
       background: rgba(255,255,255,.92);
-      border-radius: 20px;
+      border-radius: 24px;
       border: 2px solid rgba(255,255,255,.9);
-      box-shadow: 0 6px 28px rgba(192,132,252,.15);
-      padding: 22px 20px 20px;
-      margin-bottom: 14px;
+      box-shadow: 0 8px 40px rgba(192,132,252,.2);
+      padding: 24px 20px 20px;
+      margin-bottom: 16px;
       position: relative;
       overflow: hidden;
-      transition: transform .25s, box-shadow .25s;
+      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1);
     }
-    .a-card::before {
+    @keyframes slideUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .result-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
       width: 5px; height: 100%;
       background: linear-gradient(180deg, #FF6B9D, #C084FC);
     }
-    .a-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(192,132,252,.28); }
-    .a-card.done  { background: rgba(240,253,244,.95); }
-    .a-card.done::before { background: linear-gradient(180deg, #6EE7B7, #3B82F6); }
+    .result-card.done::before { background: linear-gradient(180deg, #6EE7B7, #3B82F6); }
+    .result-card.done { background: rgba(240,253,244,.95); }
+
+    .pin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, rgba(192,132,252,.15), rgba(255,107,157,.15));
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--mid);
+      margin-bottom: 10px;
+    }
 
     .name-kana  { font-size: 1.35rem; font-weight: 700; letter-spacing: .08em; }
     .name-kanji { font-size: .98rem; color: #9F7AEA; margin-top: 4px; font-weight: 500; }
@@ -276,43 +285,20 @@
       gap: 10px;
       margin: 16px 0;
     }
-    .info-box {
-      background: linear-gradient(135deg, rgba(192,132,252,.1), rgba(255,107,157,.1));
-      border-radius: 12px;
-      padding: 10px 14px;
-    }
+    .info-box { background: linear-gradient(135deg, rgba(192,132,252,.1), rgba(255,107,157,.1)); border-radius: 12px; padding: 10px 14px; }
     .info-lbl { font-size: .72rem; color: #9F7AEA; font-weight: 700; letter-spacing: .05em; margin-bottom: 3px; }
     .info-val  { font-size: 1.45rem; font-weight: 700; color: var(--dark); }
     .info-val .u { font-size: .88rem; font-weight: 500; color: #9F7AEA; }
 
-    /* ─── Check-in section ────────────────────────── */
-    .ci-section {
-      border-top: 2px dashed rgba(192,132,252,.3);
-      padding-top: 16px;
-    }
-    .ci-lbl {
-      font-size: .85rem;
-      font-weight: 700;
-      color: var(--mid);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .ci-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
+    /* ─── Check-in section ─── */
+    .ci-section { border-top: 2px dashed rgba(192,132,252,.3); padding-top: 16px; }
+    .ci-lbl { font-size: .85rem; font-weight: 700; color: var(--mid); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .ci-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .cnt-btn {
       width: 46px; height: 46px;
-      border-radius: 12px;
-      border: none;
-      font-size: 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      flex-shrink: 0;
+      border-radius: 12px; border: none;
+      font-size: 1.5rem; font-weight: 700;
+      cursor: pointer; flex-shrink: 0;
       transition: transform .15s;
     }
     .cnt-btn:hover  { transform: scale(1.12); }
@@ -320,8 +306,7 @@
     .cnt-btn.minus { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); color: #C2185B; }
     .cnt-btn.plus  { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); color: #2E7D32; }
     .ci-input {
-      flex: 1;
-      min-width: 0;
+      flex: 1; min-width: 0;
       padding: 12px 10px;
       font-size: 1.3rem;
       font-family: 'Noto Sans JP', sans-serif;
@@ -334,18 +319,16 @@
       outline: none;
       transition: border-color .2s, box-shadow .2s;
     }
-    .ci-input:focus {
-      border-color: var(--purple);
-      box-shadow: 0 0 0 3px rgba(192,132,252,.2);
-    }
+    .ci-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(192,132,252,.2); }
+
     .ci-btn {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       background: linear-gradient(135deg, #6EE7B7, #60A5FA);
       color: #fff;
       border: none;
       border-radius: 14px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 700;
       cursor: pointer;
@@ -357,54 +340,59 @@
       gap: 7px;
     }
     .ci-btn:hover   { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(96,165,250,.45); }
-    .ci-btn:active  { transform: translateY(0); }
     .ci-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
     .ci-btn.done    { background: linear-gradient(135deg, #6EE7B7, #22C55E); }
 
-    /* ─── Confetti ────────────────────────────────── */
-    .confetti-wrap {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      overflow: hidden;
+    /* もう一度ボタン */
+    .retry-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px;
+      background: rgba(255,255,255,.8);
+      color: var(--mid);
+      border: 2px solid rgba(192,132,252,.35);
+      border-radius: 14px;
+      font-size: .95rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
     }
-    .conf {
-      position: absolute;
-      width: 10px; height: 14px;
-      border-radius: 2px;
-      opacity: 0;
-      animation: confFall 1.6s ease-in forwards;
+    .retry-btn:hover { background: rgba(255,255,255,1); border-color: var(--purple); }
+
+    /* ─── Error state ─── */
+    .error-card {
+      text-align: center;
+      padding: 36px 20px;
+      animation: slideUp .3s ease;
     }
+    .error-icon { font-size: 3rem; display: block; margin-bottom: 14px; }
+    .error-text { font-size: 1.05rem; color: var(--mid); font-weight: 600; line-height: 1.7; margin-bottom: 20px; }
+
+    /* ─── Confetti ─── */
+    .confetti-wrap { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
+    .conf { position: absolute; width: 10px; height: 14px; border-radius: 2px; opacity: 0; animation: confFall 1.6s ease-in forwards; }
     @keyframes confFall {
       0%   { opacity:1; transform: translateY(-20px) rotate(0deg); }
       100% { opacity:0; transform: translateY(100vh) rotate(720deg); }
     }
 
-    /* ─── Toast ───────────────────────────────────── */
+    /* ─── Toast ─── */
     .toast {
       position: fixed;
-      bottom: 28px;
-      left: 50%;
+      bottom: 28px; left: 50%;
       transform: translateX(-50%) translateY(90px);
       background: linear-gradient(135deg, #6EE7B7, #60A5FA);
       color: #fff;
       padding: 13px 28px;
       border-radius: 50px;
-      font-weight: 700;
-      font-size: .95rem;
+      font-weight: 700; font-size: .95rem;
       box-shadow: 0 8px 32px rgba(96,165,250,.4);
       transition: transform .5s cubic-bezier(.34,1.56,.64,1);
       z-index: 10000;
       white-space: nowrap;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* ─── Responsive ──────────────────────────────── */
-    @media (max-width: 480px) {
-      .card { padding: 20px 16px; }
-      .search-row { flex-direction: column; }
-      .search-btn { padding: 14px; }
-    }
   </style>
 </head>
 <body>
@@ -419,103 +407,148 @@
     </div>
     <span class="header-icon">🌸</span>
     <h1 id="js-title">イベント受付</h1>
-    <p class="subtitle" id="js-subtitle">ようこそ！お名前を検索してください 🎉</p>
+    <p class="subtitle" id="js-subtitle">招待状のPINを入力してください 🎟️</p>
   </header>
 
-  <!-- Setup notice (hidden when configured) -->
+  <!-- Setup notice -->
   <div id="js-notice" class="notice" style="display:none">
     <strong>⚙️ 設定が必要です</strong>
-    index.html の先頭 <code>&lt;script&gt;</code> 内の <code>GAS_URL</code> に Google Apps Script の Web アプリ URL を貼り付けてください。<br>
-    設定が完了するまではデモデータで動作します。
+    index.html の <code>GAS_URL</code> に Google Apps Script の Web アプリ URL を設定してください。<br>
+    設定完了まではデモデータで動作します。
   </div>
 
-  <!-- Search card -->
-  <div class="card">
-    <div class="search-label">
-      <span>🔍</span> お名前をカタカナで入力してください
+  <!-- PIN入力 -->
+  <div class="card" id="js-pin-card">
+    <div class="pin-label">
+      🎟️ 招待状に記載のPINを入力してください
     </div>
-    <div class="search-row">
-      <input
-        id="js-input"
-        class="search-input"
-        type="text"
-        placeholder="例：タナカ タロウ"
-        inputmode="text"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="none"
-      >
-      <button class="search-btn" onclick="search()">🔍&nbsp;検索</button>
+
+    <!-- PIN表示エリア（桁数に応じて自動生成） -->
+    <div class="pin-display" id="js-pin-display"></div>
+
+    <!-- テンキー -->
+    <div class="keypad">
+      <button class="key key-num" onclick="pressKey('1')">1</button>
+      <button class="key key-num" onclick="pressKey('2')">2</button>
+      <button class="key key-num" onclick="pressKey('3')">3</button>
+      <button class="key key-num" onclick="pressKey('4')">4</button>
+      <button class="key key-num" onclick="pressKey('5')">5</button>
+      <button class="key key-num" onclick="pressKey('6')">6</button>
+      <button class="key key-num" onclick="pressKey('7')">7</button>
+      <button class="key key-num" onclick="pressKey('8')">8</button>
+      <button class="key key-num" onclick="pressKey('9')">9</button>
+      <button class="key key-clear" onclick="clearPin()" title="クリア">⌫</button>
+      <button class="key key-num" onclick="pressKey('0')">0</button>
+      <button class="key key-enter" id="js-enter-key" onclick="submitPin()" disabled title="確認">✓</button>
     </div>
-    <p class="hint">※ 部分一致で検索できます（例：「タナカ」→ 田中さん全員が表示）</p>
+
+    <p class="hint" id="js-hint">招待状に記載された数字を入力してください</p>
   </div>
 
-  <!-- Results -->
+  <!-- 結果エリア -->
   <div id="js-results"></div>
 
-</div><!-- /wrap -->
+</div>
 
-<!-- Toast -->
 <div id="js-toast" class="toast"></div>
-
-<!-- Confetti container (injected on demand) -->
 <div class="confetti-wrap" id="js-confetti" aria-hidden="true"></div>
 
 <script>
   // ================================================================
   //  設定 — ここを編集してください
   // ================================================================
-  const GAS_URL     = 'YOUR_GAS_URL_HERE';   // Google Apps Script Web アプリ URL
-  const EVENT_TITLE    = 'イベント受付';          // イベント名
-  const EVENT_SUBTITLE = 'ようこそ！お名前を検索してください 🎉'; // サブタイトル
+  const GAS_URL        = 'YOUR_GAS_URL_HERE';
+  const EVENT_TITLE    = 'イベント受付';
+  const EVENT_SUBTITLE = '招待状のPINを入力してください 🎟️';
+  const PIN_DIGITS     = 4;   // PINの桁数（スプレッドシートに合わせてください）
   // ================================================================
 
-  // Apply titles
   document.getElementById('js-title').textContent    = EVENT_TITLE;
   document.getElementById('js-subtitle').textContent = EVENT_SUBTITLE;
   document.title = '🌸 ' + EVENT_TITLE + ' 🌸';
 
-  // Show notice if not configured
   if (GAS_URL === 'YOUR_GAS_URL_HERE') {
     document.getElementById('js-notice').style.display = 'block';
   }
 
-  // Enter key → search
-  document.getElementById('js-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') search();
-  });
+  // ── PIN state ──────────────────────────────────────────────────
+  let pinValue = '';
 
-  // ── DEMO DATA (used when GAS_URL is not set) ──────────────────
+  // PINドット初期化
+  function initPinDisplay() {
+    const disp = document.getElementById('js-pin-display');
+    disp.innerHTML = '';
+    for (let i = 0; i < PIN_DIGITS; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'pin-dot';
+      dot.id = 'dot-' + i;
+      disp.appendChild(dot);
+    }
+  }
+  initPinDisplay();
+
+  function updateDisplay() {
+    for (let i = 0; i < PIN_DIGITS; i++) {
+      const dot = document.getElementById('dot-' + i);
+      if (i < pinValue.length) {
+        dot.textContent = pinValue[i];
+        dot.classList.add('filled');
+        dot.classList.remove('active');
+      } else if (i === pinValue.length) {
+        dot.textContent = '';
+        dot.classList.add('active');
+        dot.classList.remove('filled');
+      } else {
+        dot.textContent = '';
+        dot.classList.remove('filled', 'active');
+      }
+    }
+    document.getElementById('js-enter-key').disabled = (pinValue.length !== PIN_DIGITS);
+  }
+
+  function pressKey(digit) {
+    if (pinValue.length >= PIN_DIGITS) return;
+    pinValue += digit;
+    updateDisplay();
+    if (pinValue.length === PIN_DIGITS) submitPin();
+  }
+
+  function clearPin() {
+    pinValue = pinValue.slice(0, -1);
+    updateDisplay();
+  }
+
+  // ── DEMO DATA ──────────────────────────────────────────────────
   const DEMO = [
-    { rowIndex:2, kana:'タナカ タロウ',   kanji:'田中 太郎',   registeredCount:4, actualCount:'' },
-    { rowIndex:3, kana:'タナカ ハナコ',   kanji:'田中 花子',   registeredCount:2, actualCount:2  },
-    { rowIndex:4, kana:'ヤマダ ケンジ',   kanji:'山田 健二',   registeredCount:3, actualCount:'' },
-    { rowIndex:5, kana:'スズキ ユイ',     kanji:'鈴木 結衣',   registeredCount:5, actualCount:'' },
-    { rowIndex:6, kana:'サトウ ファミリー',kanji:'佐藤 家族',  registeredCount:6, actualCount:6  },
-    { rowIndex:7, kana:'イトウ アキラ',   kanji:'伊藤 明',     registeredCount:2, actualCount:'' },
+    { rowIndex:2, pin:'1001', kana:'タナカ タロウ',    kanji:'田中 太郎',   registeredCount:4, actualCount:'' },
+    { rowIndex:3, pin:'1002', kana:'タナカ ハナコ',    kanji:'田中 花子',   registeredCount:2, actualCount:2  },
+    { rowIndex:4, pin:'1003', kana:'ヤマダ ケンジ',    kanji:'山田 健二',   registeredCount:3, actualCount:'' },
+    { rowIndex:5, pin:'1004', kana:'スズキ ユイ',      kanji:'鈴木 結衣',   registeredCount:5, actualCount:'' },
+    { rowIndex:6, pin:'1005', kana:'サトウ ファミリー', kanji:'佐藤 家族',  registeredCount:6, actualCount:6  },
+    { rowIndex:7, pin:'1006', kana:'イトウ アキラ',    kanji:'伊藤 明',     registeredCount:2, actualCount:'' },
   ];
 
-  // ── SEARCH ───────────────────────────────────────────────────
-  function search() {
-    const kw = document.getElementById('js-input').value.trim();
-    if (!kw) { showMessage('🔍 お名前を入力してください'); return; }
-
+  // ── SUBMIT PIN ─────────────────────────────────────────────────
+  function submitPin() {
+    if (pinValue.length !== PIN_DIGITS) return;
+    const entered = pinValue;
     showLoading();
 
     if (GAS_URL === 'YOUR_GAS_URL_HERE') {
-      const norm = kw.replace(/\s/g,'');
-      const hits = DEMO.filter(d => d.kana.includes(kw) || d.kana.replace(/\s/g,'').includes(norm));
-      setTimeout(() => renderResults(hits), 400);
+      setTimeout(() => {
+        const hit = DEMO.find(d => d.pin === entered);
+        renderResult(hit, entered);
+      }, 500);
       return;
     }
 
-    jsonp({ action:'search', keyword:kw }, data => {
-      if (data.success) renderResults(data.data);
-      else showMessage('❌ エラー：' + (data.error || '不明'));
-    });
+    jsonp({ action: 'findByPin', pin: entered }, data => {
+      if (data.success) renderResult(data.data, entered);
+      else showError(entered);
+    }, () => showError(entered));
   }
 
-  // ── RECORD ATTENDANCE ─────────────────────────────────────────
+  // ── RECORD ATTENDANCE ──────────────────────────────────────────
   function record(rowIndex) {
     const input = document.getElementById('ci-' + rowIndex);
     const count = parseInt(input.value);
@@ -531,15 +564,11 @@
       fireConfetti();
     };
 
-    if (GAS_URL === 'YOUR_GAS_URL_HERE') {
-      setTimeout(done, 600);
-      return;
-    }
+    if (GAS_URL === 'YOUR_GAS_URL_HERE') { setTimeout(done, 600); return; }
 
-    jsonp({ action:'update', row:rowIndex, count }, data => {
-      if (data.success) {
-        done();
-      } else {
+    jsonp({ action: 'update', row: rowIndex, count }, data => {
+      if (data.success) done();
+      else {
         btn.disabled = false;
         btn.innerHTML = '❌ エラー — 再試行';
         showToast('❌ エラーが発生しました');
@@ -555,71 +584,83 @@
     el.value = Math.max(0, (parseInt(el.value) || 0) + delta);
   }
 
-  // ── RENDER ───────────────────────────────────────────────────
+  // ── RENDER ─────────────────────────────────────────────────────
   function showLoading() {
     document.getElementById('js-results').innerHTML =
       '<div class="loading"><div class="spinner"></div></div>';
   }
 
-  function showMessage(msg) {
-    document.getElementById('js-results').innerHTML =
-      `<div class="card" style="text-align:center;color:var(--mid);font-weight:600;padding:28px">${msg}</div>`;
-  }
-
-  function renderResults(list) {
+  function renderResult(person, enteredPin) {
     const box = document.getElementById('js-results');
-    if (!list.length) {
+
+    if (!person) {
       box.innerHTML = `
-        <div class="card">
-          <div class="empty">
-            <span class="empty-icon">🔍</span>
-            <div class="empty-text">該当する方が見つかりませんでした<br>カタカナでお名前を入力してください</div>
+        <div class="card error-card">
+          <span class="error-icon">🔍</span>
+          <div class="error-text">
+            PIN「<strong>${esc(enteredPin)}</strong>」は見つかりませんでした<br>
+            招待状をご確認ください
           </div>
+          <button class="retry-btn" onclick="resetPin()">🔄 もう一度入力する</button>
         </div>`;
+      resetPinInput();
       return;
     }
+
+    const done   = person.actualCount !== '' && person.actualCount !== null && person.actualCount !== undefined;
+    const defVal = done ? person.actualCount : (person.registeredCount || 0);
+
     box.innerHTML = `
-      <div class="results-hd">
-        🎫 検索結果 <span class="badge">${list.length}件</span>
-      </div>
-      ${list.map(p => cardHTML(p)).join('')}`;
-  }
+      <div class="result-card ${done ? 'done' : ''}" id="card-${person.rowIndex}">
+        <div class="pin-badge">🎟️ PIN: ${esc(person.pin || enteredPin)}</div>
+        <div class="name-kana">${esc(person.kana)}</div>
+        <div class="name-kanji">📝 ${esc(person.kanji)}</div>
 
-  function cardHTML(p) {
-    const done = p.actualCount !== '' && p.actualCount !== null && p.actualCount !== undefined;
-    const defVal = done ? p.actualCount : (p.registeredCount || 0);
-    return `
-    <div class="a-card ${done ? 'done' : ''}" id="card-${p.rowIndex}">
-      <div class="name-kana">${esc(p.kana)}</div>
-      <div class="name-kanji">📝 ${esc(p.kanji)}</div>
-
-      <div class="info-grid">
-        <div class="info-box">
-          <div class="info-lbl">👨‍👩‍👧‍👦 予定人数</div>
-          <div class="info-val">${p.registeredCount || 0}<span class="u"> 名</span></div>
-        </div>
-        <div class="info-box" id="status-${p.rowIndex}">
-          <div class="info-lbl">✅ 入場済</div>
-          <div class="info-val" id="done-val-${p.rowIndex}">
-            ${done ? p.actualCount + '<span class="u"> 名</span>' : '<span style="color:#C4B5E8">—</span>'}
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-lbl">👨‍👩‍👧‍👦 予定人数</div>
+            <div class="info-val">${person.registeredCount || 0}<span class="u"> 名</span></div>
+          </div>
+          <div class="info-box">
+            <div class="info-lbl">✅ 入場済</div>
+            <div class="info-val" id="done-val-${person.rowIndex}">
+              ${done ? person.actualCount + '<span class="u"> 名</span>' : '<span style="color:#C4B5E8">—</span>'}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="ci-section">
-        <div class="ci-lbl">🎟️ 実際の入場人数を入力してください</div>
-        <div class="ci-row">
-          <button class="cnt-btn minus" onclick="changeCount(${p.rowIndex},-1)">－</button>
-          <input  class="ci-input" id="ci-${p.rowIndex}" type="number"
-                  min="0" max="99" value="${defVal}" inputmode="numeric">
-          <button class="cnt-btn plus"  onclick="changeCount(${p.rowIndex}, 1)">＋</button>
+        <div class="ci-section">
+          <div class="ci-lbl">🎟️ 実際の入場人数を入力してください</div>
+          <div class="ci-row">
+            <button class="cnt-btn minus" onclick="changeCount(${person.rowIndex},-1)">－</button>
+            <input class="ci-input" id="ci-${person.rowIndex}" type="number"
+                   min="0" max="99" value="${defVal}" inputmode="numeric">
+            <button class="cnt-btn plus"  onclick="changeCount(${person.rowIndex}, 1)">＋</button>
+          </div>
+          <button class="ci-btn ${done ? 'done' : ''}" id="btn-${person.rowIndex}"
+                  onclick="record(${person.rowIndex})">
+            ${done ? '✅ 入場済み（再登録する）' : '🎉 入場を記録する'}
+          </button>
         </div>
-        <button class="ci-btn ${done ? 'done' : ''}" id="btn-${p.rowIndex}"
-                onclick="record(${p.rowIndex})">
-          ${done ? '✅ 入場済み（再登録する）' : '🎉 入場を記録する'}
-        </button>
       </div>
-    </div>`;
+      <button class="retry-btn" onclick="resetPin()">🔄 別の方の受付をする</button>`;
+
+    resetPinInput();
+  }
+
+  function showError(enteredPin) {
+    renderResult(null, enteredPin);
+  }
+
+  function resetPin() {
+    pinValue = '';
+    updateDisplay();
+    document.getElementById('js-results').innerHTML = '';
+  }
+
+  function resetPinInput() {
+    pinValue = '';
+    updateDisplay();
   }
 
   function updateCardDone(rowIndex, count) {
@@ -631,28 +672,17 @@
     if (btn)  { btn.disabled = false; btn.classList.add('done'); btn.innerHTML = '✅ 入場済み（再登録する）'; }
   }
 
-  // ── JSONP helper ──────────────────────────────────────────────
+  // ── JSONP ──────────────────────────────────────────────────────
   function jsonp(params, onSuccess, onError) {
     const cbName = 'cb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
     const sc = document.createElement('script');
-    const qs = new URLSearchParams({ ...params, callback: cbName });
-    sc.src = GAS_URL + '?' + qs.toString();
-
-    window[cbName] = data => {
-      delete window[cbName];
-      sc.remove();
-      onSuccess(data);
-    };
-    sc.onerror = () => {
-      delete window[cbName];
-      sc.remove();
-      if (onError) onError();
-      else showMessage('❌ 接続エラーが発生しました。URLを確認してください。');
-    };
+    sc.src = GAS_URL + '?' + new URLSearchParams({ ...params, callback: cbName }).toString();
+    window[cbName] = data => { delete window[cbName]; sc.remove(); onSuccess(data); };
+    sc.onerror = () => { delete window[cbName]; sc.remove(); if (onError) onError(); };
     document.body.appendChild(sc);
   }
 
-  // ── CONFETTI ─────────────────────────────────────────────────
+  // ── CONFETTI ───────────────────────────────────────────────────
   const CONF_COLORS = ['#FF6B9D','#C084FC','#FBD97C','#6EE7B7','#60A5FA','#FF9B50'];
   function fireConfetti() {
     const wrap = document.getElementById('js-confetti');
@@ -660,21 +690,13 @@
     for (let i = 0; i < 60; i++) {
       const el = document.createElement('div');
       el.className = 'conf';
-      el.style.cssText = `
-        left: ${Math.random()*100}%;
-        background: ${CONF_COLORS[Math.random()*CONF_COLORS.length|0]};
-        animation-delay: ${Math.random()*.6}s;
-        animation-duration: ${1.2 + Math.random()*.8}s;
-        width: ${8+Math.random()*8}px;
-        height: ${10+Math.random()*10}px;
-        border-radius: ${Math.random()>0.5?'50%':'2px'};
-      `;
+      el.style.cssText = `left:${Math.random()*100}%;background:${CONF_COLORS[Math.random()*CONF_COLORS.length|0]};animation-delay:${Math.random()*.6}s;animation-duration:${1.2+Math.random()*.8}s;width:${8+Math.random()*8}px;height:${10+Math.random()*10}px;border-radius:${Math.random()>.5?'50%':'2px'};`;
       wrap.appendChild(el);
     }
     setTimeout(() => wrap.innerHTML = '', 2800);
   }
 
-  // ── TOAST ────────────────────────────────────────────────────
+  // ── TOAST ──────────────────────────────────────────────────────
   let toastTimer;
   function showToast(msg) {
     const t = document.getElementById('js-toast');
@@ -684,11 +706,8 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
   }
 
-  // ── HTML escape ───────────────────────────────────────────────
   function esc(s) {
-    return String(s||'')
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 </script>
 </body>
